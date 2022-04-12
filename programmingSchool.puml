@@ -1,0 +1,51 @@
+@startuml
+
+School *-- People
+Mentor --> Module
+Student --> Module
+People <|-- Student
+People <|-- Mentor
+Module --> Language
+
+class School{
+- mentors : List<Mentor>
+- students : List<Student>
++ hireMentor() : void
++ acceptStudent() : void
++ assignMentor() : void
++ getStudents( module : Module) : List<Student>
+}
+
+abstract class People{
+# name : String
+# birthDate : LocalDate
+# phoneNumber : String
+# currentModule : Module
+
+}
+
+enum Module{
+PROGRAMMING_BASICS(PYTHON)
+WEB(WEB)
+OOP(JAVA_SE)
+ADVANCED(JAVA_EE)
+
++ programmingLanguage : Language
++ nextModule() : Module
+}
+
+enum Language{
+PYTHON
+WEB
+JAVA_SE
+JAVA_EE
+}
+
+class Mentor{
+- salary : int
+}
+
+class Student{
+}
+
+@enduml
