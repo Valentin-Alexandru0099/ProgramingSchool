@@ -1,10 +1,8 @@
 package com.company;
 
 
-import com.company.entities.Mentor;
+import com.company.entities.*;
 import com.company.entities.Module;
-import com.company.entities.School;
-import com.company.entities.Student;
 
 import java.time.LocalDate;
 
@@ -13,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         LocalDate localDate = LocalDate.now();
         School school = new School("ALex's school");
-        Mentor mentor = new Mentor("Alex", localDate, "+40770707077", Module.OOP,999999);
+        Mentor mentor = new Mentor("Alex", localDate, "+40770707077", Module.OOP,999999, Language.JAVA_SE);
         Student student = new Student("Alex2", localDate,"+40770707077", Module.OOP);
         Student student2 = new Student("Alex3", localDate,"+40770707077", Module.PYTHON);
         Student student3= new Student("Alex4", localDate,"+40770707077", Module.ADVANCED);
@@ -32,5 +30,7 @@ public class Main {
         System.out.println(student4.getCurrentModule().nextModule());
         System.out.println(student.getCurrentModule().nextModule());
         System.out.println(student3.getCurrentModule().nextModule());
+        mentor.learnLanguage(Language.PYTHON);
+        school.assignMentor(mentor, Module.PYTHON);
     }
 }

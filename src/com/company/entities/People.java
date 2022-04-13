@@ -24,4 +24,8 @@ public abstract class People {
     }
 
 
+    @Override
+    public String toString() {
+        return name+ " ";
+    }
 }

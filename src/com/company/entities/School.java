@@ -33,12 +33,15 @@ public class School {
     }
 
     public void assignMentor(Mentor mentor, Module module){
-        if (mentor.getCurrentModule().equals(module)){
-            mentor.setCurrentModule(module);
-            System.out.println("Can teach: " + module);
-        }else{
-            System.out.println("Can't teach: " + module);
-
+        for (Language language : mentor.getLanguages()){
+            if (language.equals(module.getProgrammingLanguage())){
+                System.out.println(mentor + "can teach: "+ module.getProgrammingLanguage());
+                mentor.setCurrentModule(module);
+                System.out.println(mentor.getCurrentModule());
+                return;
+            }
         }
+        System.out.println(mentor + "can't teach: "+ module.getProgrammingLanguage());
+
     }
 }

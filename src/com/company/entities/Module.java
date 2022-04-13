@@ -26,6 +26,10 @@ public enum Module {
         }
     };
 
+    public Language getProgrammingLanguage() {
+        return programmingLanguage;
+    }
+
     public final Language programmingLanguage;
 
 
