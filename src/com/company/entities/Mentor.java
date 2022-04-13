@@ -19,9 +19,15 @@ public class Mentor extends People{
         languages.add(language);
     }
 
-
-    public List<Language> getLanguages() {
-        return languages;
+    public void assignToModule(Module module){
+        for (Language language : languages){
+            if (language.equals(module.getProgrammingLanguage())){
+                System.out.println(this + "can teach: "+ module.getProgrammingLanguage());
+                this.setCurrentModule(module);
+                System.out.println(this.getCurrentModule());
+                return;
+            }
+        }
+        System.out.println(this + "can't teach: "+ module.getProgrammingLanguage());
     }
-
 }
